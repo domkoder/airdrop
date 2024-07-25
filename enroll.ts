@@ -15,7 +15,7 @@ const provider = new AnchorProvider(connection, new Wallet(keypair), {
 
 const program: Program<WbaPrereq> = new Program(IDL, provider)
 const enrollment_seeds = [Buffer.from('prereq'), keypair.publicKey.toBuffer()]
-const [enrollment_key, _bump] = PublicKey.findProgramAddressSync(
+const [, _bump] = PublicKey.findProgramAddressSync(
 	enrollment_seeds,
 	program.programId
 )
